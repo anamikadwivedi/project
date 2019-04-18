@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:orientation="vertical"
+        android:background="@drawable/border">
+
+    <ImageView
+        android:id="@+id/imageviewRecord"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/colorPrimary"
+        android:src="@drawable/addphoto"/>
+
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="fill_parent"
+        android:layout_height="38dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/transparent"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:hint="@string/fullName"
+        android:inputType="textCapWords"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColor="#666666"
+        android:textColorHint="#666666"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/white_greyish" />
+
+    <EditText
+        android:id="@+id/updateAge"
+        android:layout_width="fill_parent"
+        android:layout_height="39dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/transparent"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:hint="Enter Age"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColor="#666666"
+        android:textColorHint="#666666"
+        android:textSize="16sp" />
+
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/white_greyish" />
+
+    <EditText
+        android:id="@+id/editEmailId"
+        android:layout_width="fill_parent"
+        android:layout_height="39dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/transparent"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColor="#666666"
+        android:textColorHint="#666666"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/white_greyish" />
+
+    <EditText
+        android:id="@+id/editPhone"
+        android:layout_width="fill_parent"
+        android:layout_height="41dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/transparent"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:hint="@string/mobileNumber"
+        android:inputType="phone"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColor="#666666"
+        android:textColorHint="#666666"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/white_greyish" />
+
+    <EditText
+        android:id="@+id/editLocation"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/transparent"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:hint="@string/location"
+        android:inputType="textCapWords"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColor="#666666"
+        android:textColorHint="#666666"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/white_greyish" />
+
+    <EditText
+        android:id="@+id/editDateOfBirth"
+        android:layout_width="fill_parent"
+        android:layout_height="38dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/transparent"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:hint="Date Of Birth"
+        android:inputType="text"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColor="#666666"
+        android:textColorHint="#666666"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/white_greyish" />
+
+    <EditText
+        android:id="@+id/editHeight"
+        android:layout_width="fill_parent"
+        android:layout_height="42dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/transparent"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:hint="Height In Feet"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColor="#666666"
+        android:textColorHint="#666666"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/white_greyish" />
+
+    <EditText
+        android:id="@+id/editWeight"
+        android:layout_width="fill_parent"
+        android:layout_height="38dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/transparent"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:hint="weight In Kg"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColor="#666666"
+        android:textColorHint="#666666"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/white_greyish" />
+
+    <EditText
+        android:id="@+id/editBust"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/transparent"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:hint="Bust In Inch"
+        android:inputType="textCapWords"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColor="#666666"
+        android:textColorHint="#666666"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/white_greyish" />
+
+    <EditText
+        android:id="@+id/editWaist"
+        android:layout_width="fill_parent"
+        android:layout_height="42dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/transparent"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:hint="Waist In Inch"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColor="#666666"
+        android:textColorHint="#666666"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/white_greyish" />
+
+    <EditText
+        android:id="@+id/editHip"
+        android:layout_width="fill_parent"
+        android:layout_height="41dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/transparent"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:hint="Hip In Inch"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColor="#666666"
+        android:textColorHint="#666666"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/btnUpdate"
+        android:text="Update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corners"
+        />
+    </LinearLayout>
+</ScrollView>

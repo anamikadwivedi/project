@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.MeetSponsers">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bkup"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="67dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="300dp"
+            android:background="@drawable/button_rounded_corners_gradient"
+            android:text="OUR ASSOCIATES"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="74dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_rounded_corners_gradient"
+            android:text="ENQUIRY"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/Home"
+            android:icon="@android:drawable/ic_menu_call"
+            android:title="Home" />
+        <item
+            android:id="@+id/About_Us"
+            android:title="About Us" />
+        <item
+            android:id="@+id/SignUp"
+            android:title="Sign Up" />
+        <item
+            android:id="@+id/Contestants"
+            android:title="Contestants" />
+        <item
+            android:id="@+id/Photo_Gallery"
+            android:title="Photo Gallery" />
+
+        <item
+            android:id="@+id/Video_Gallery"
+            android:title="Video Gallery" />
+
+        <item
+            android:id="@+id/Meet_the_Sponsers"
+            android:title="Meet the Sponsers" />
+
+        <item
+            android:id="@+id/Contact_Us"
+            android:title="Contact  Us" />
+
+        <item
+            android:id="@+id/Logout"
+            android:title="Logout" />
+    </group>
+</menu>

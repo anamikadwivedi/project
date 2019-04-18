@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="3dp"
+    app:cardBackgroundColor="#000"
+    app:contentPadding="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgicon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:orientation="vertical">
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TableRow>
+                    <TextView
+                        android:text="Name: "
+                        android:textSize="20dp"
+                        android:textColor="#666"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/txtname"
+                        android:text="Name Here"
+                        android:textSize="20dp"
+                        android:textColor="#666"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:text="Age: "
+                        android:textSize="20dp"
+                        android:textColor="#666"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/txtage"
+                        android:text="Age Here"
+                        android:textSize="20dp"
+                        android:textColor="#666"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:text="Phone: "
+                        android:textSize="20dp"
+                        android:textColor="#666"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/txtphone"
+                        android:text="Phone no Here"
+                        android:textSize="20dp"
+                        android:textColor="#666"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:text="email: "
+                        android:textSize="20dp"
+                        android:textColor="#666"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/txtemail"
+                        android:text="email Here"
+                        android:textSize="20dp"
+                        android:textColor="#666"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </TableRow>
+
+
+
+                <TableRow>
+                    <TextView
+                        android:text="DOB: "
+                        android:textSize="20dp"
+                        android:textColor="#666"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/txtDOB"
+                        android:text="DOB Here"
+                        android:textSize="20dp"
+                        android:textColor="#666"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:text="location: "
+                        android:textSize="20dp"
+                        android:textColor="#666"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/txtlocation"
+                        android:text="Location Here"
+                        android:textSize="20dp"
+                        android:textColor="#666"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:text="Height: "
+                        android:textSize="20dp"
+                        android:textColor="#666"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/txtHeight"
+                        android:text="Height Here"
+                        android:textSize="20dp"
+                        android:textColor="#666"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:text="Weight: "
+                        android:textSize="20dp"
+                        android:textColor="#666"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/txtWeight"
+                        android:text="Weight Here"
+                        android:textSize="20dp"
+                        android:textColor="#666"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:text="Bust: "
+                        android:textSize="20dp"
+                        android:textColor="#666"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/txtBust"
+                        android:text="Bust Here"
+                        android:textSize="20dp"
+                        android:textColor="#666"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:text="Waist: "
+                        android:textSize="20dp"
+                        android:textColor="#666"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/txtWaist"
+                        android:text="waist Here"
+                        android:textSize="20dp"
+                        android:textColor="#666"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:text="Hip: "
+                        android:textSize="20dp"
+                        android:textColor="#666"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/txtHip"
+                        android:text="Hip Here"
+                        android:textSize="20dp"
+                        android:textColor="#666"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </TableRow>
+            </TableLayout>
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnshare"
+            android:layout_marginRight="70dp"
+            android:text="share"
+
+            android:textColor="#000" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnvote"
+            android:text="vote"
+            android:textColor="#000" />
+    </LinearLayout>
+
+
+</LinearLayout>
+

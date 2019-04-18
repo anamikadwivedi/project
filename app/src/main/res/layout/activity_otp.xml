@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OTP">
+
+    <EditText
+        android:id="@+id/phoneNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:hint="Enter Your Phone Number" />
+
+    <Button
+        android:id="@+id/Login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/phonetxt"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="-97dp"
+        android:layout_marginRight="100dp"
+        android:background="@drawable/rounded_corners"
+        android:text="Login" />
+
+
+    <EditText
+        android:layout_below="@+id/phoneNo"
+        android:id="@+id/phonetxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:hint="Enter Your OTP" />
+    <Button
+        android:id="@+id/verificationbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/phonetxt"
+        android:layout_marginRight="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="20sp"
+        android:text="ok"
+        android:background="@drawable/rounded_corners"/>
+
+    <com.alimuzaffar.lib.pin.PinEntryEditText
+        android:id="@+id/txt_pin_entry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cursorVisible="false"
+        android:digits="1234567890"
+        android:inputType="number"
+        android:maxLength="4"
+        android:textIsSelectable="false"
+        android:textSize="20sp"
+        app:pinAnimationType="popIn" />
+
+</RelativeLayout>

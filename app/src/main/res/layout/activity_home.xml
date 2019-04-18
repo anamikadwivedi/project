@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/newbk"
+    tools:context=".navigate.HomeActivity">
+
+    <include layout="@layout/toolbar" />
+
+
+    <com.smarteist.autoimageslider.SliderLayout
+
+        android:id="@+id/imageSlider"
+        android:layout_width="match_parent"
+        android:layout_height="257dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp" />
+
+
+
+    <Button
+        android:id="@+id/btnhome"
+        android:layout_width="160dp"
+        android:layout_height="122dp"
+        android:layout_below="@+id/imageSlider"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="23dp"
+        android:background="@drawable/border"
+        android:text="ApplyNow"
+        android:textColor="#666"
+        android:textSize="17dp"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/buttonApply"
+        android:layout_width="160dp"
+        android:layout_height="125dp"
+        android:layout_below="@+id/btnhome"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/border"
+        android:text="Apply"
+        android:textColor="#666"
+        android:textSize="17dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnAbout"
+        android:layout_width="170dp"
+        android:layout_height="117dp"
+        android:layout_below="@+id/imageSlider"
+        android:layout_marginLeft="210dp"
+        android:layout_marginTop="23dp"
+        android:background="@drawable/border"
+        android:text="@string/About_Us"
+        android:textColor="#666"
+        android:textSize="17dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnContact"
+        android:layout_width="170dp"
+        android:layout_height="121dp"
+        android:layout_below="@+id/btnAbout"
+        android:layout_marginLeft="210dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/border"
+        android:text="@string/Contestants"
+        android:textColor="#666"
+        android:textSize="17dp"
+        android:textStyle="bold" />
+
+
+
+
+</RelativeLayout>

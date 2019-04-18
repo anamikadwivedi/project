@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background"
+    android:padding="20dp"
+    tools:context=".fragment.ContactUs">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rounded_corners"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="254dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Write Us :"
+            android:textColor="#666"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:drawableLeft="@drawable/iconmail"
+            android:drawablePadding="10dp"
+            android:gravity="fill_vertical"
+            android:hint="mumera@gmail.com"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="#666666"
+            android:textColorHint="#666"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="261dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="1sp"
+            android:background="#a40404" />
+
+
+        <EditText
+            android:id="@+id/login_password"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/transparent"
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
+            android:hint="@string/passowrd"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="#666666"
+            android:textColorHint="#666"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="8dp"
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Call Us : "
+                android:textColor="#666666"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:drawableLeft="@drawable/iconcall"
+            android:drawablePadding="10dp"
+            android:gravity="fill_vertical"
+            android:hint="9879091293"
+            android:inputType="phone"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="#666666"
+            android:textColorHint="#666"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="269dp"
+            android:layout_height="2dp"
+            android:layout_gravity="fill_vertical"
+            android:layout_marginTop="1sp"
+            android:background="#a40404" />
+
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="8dp"
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Address : "
+                android:textColor="#666666"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/createAccount"
+            android:layout_width="276dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login_layout"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/newUser"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textColor="#666666"
+            android:textStyle="bold"
+            android:visibility="visible" />
+    </LinearLayout>
+
+
+</RelativeLayout>

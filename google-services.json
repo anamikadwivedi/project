@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "763696337343",
+    "firebase_url": "https://indoasia-15e34.firebaseio.com",
+    "project_id": "indoasia-15e34",
+    "storage_bucket": "indoasia-15e34.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:763696337343:android:cede15a0f7e1bdab",
+        "android_client_info": {
+          "package_name": "com.example.indo_asia.FirabaseAuthentication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "763696337343-la9nlt50itqc2ehn49ocincud35t9vl9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.indo_asia.FirabaseAuthentication",
+            "certificate_hash": "906077bb479cb7af0d6497a793b684c2f68f3d34"
+          }
+        },
+        {
+          "client_id": "763696337343-o3ftr1sc8btd1bofvqk4rdshqsbas646.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoo3ye3ZAUiAoW2K4aTUIOOY2UCHQuhJ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "763696337343-o3ftr1sc8btd1bofvqk4rdshqsbas646.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <item android:id="@+id/search_item"
+        android:title="User_Profile"
+        android:icon="@color/colorPrimary"/>
+    <item android:id="@+id/upload_item"
+        android:title="@string/Photo_Gallery"
+        android:icon="@color/colorPrimary"/>
+    <item android:id="@+id/copy_item"
+        android:title="@string/Video_Gallery" />
+    <item android:id="@+id/print_item"
+        android:title="Print" />
+    <item android:id="@+id/share_item"
+        android:title="Share" />
+    <item android:id="@+id/bookmark_item"
+        android:title="BookMark" />
+    <item
+        android:id="@+id/new_activity"
+        android:title="Open New Activity"
+        app:showAsAction="always"
+        android:icon="@android:drawable/btn_radio"/>
+
+</menu>

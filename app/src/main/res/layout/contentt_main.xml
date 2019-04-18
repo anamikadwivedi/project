@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:text="message"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/phone_number_edt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:inputType="number"
+        android:hint="enter_phone_hint" />
+
+
+    <EditText
+        android:id="@+id/sms_code_edt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="enter_verify_code" />
+
+    <Button
+        android:id="@+id/start_auth_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/colorAccent"
+        android:text="@string/start_phone_auth"
+        android:textColor="#fff" />
+
+    <Button
+        android:visibility="gone"
+        android:id="@+id/verify_auth_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorAccent"
+        android:text="@string/verify_phone_auth"
+        android:textColor="#fff" />
+
+</LinearLayout>
