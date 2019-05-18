@@ -6,7 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+    android:background="@drawable/newbk"
     tools:context=".FirabaseAuthentication.Main3Activity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon"/>
 
     <TextView
         android:id="@+id/text_otp"
@@ -27,6 +33,7 @@
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corners"
         android:text="SUBMIT"
         />
     <ProgressBar

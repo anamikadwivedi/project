@@ -4,9 +4,10 @@ public class model {
 
     private int id;
     private String name;
-    private String age;
-    private String phone;
     private String email;
+    private String state;
+    private String country;
+    private String city;
     private String location;
     private String DOB;
     private String Height;
@@ -16,11 +17,12 @@ public class model {
     private String Hip;
     private byte[] image;
 
-    public model(int id, String name, String age, String phone, String email, String DOB, String location, String height, String weight, String bust, String waist, String hip, byte[] image) {
+    public model(int id, String name, String email, String state, String country, String city, String DOB, String location, String height, String weight, String bust, String waist, String hip, byte[] image) {
         this.id = id;
         this.name = name;
-        this.age = age;
-        this.phone = phone;
+        this.state = state;
+        this.country = country;
+        this.city = city;
         this.email = email;
         this.location = location;
         this.DOB = DOB;
@@ -48,28 +50,36 @@ public class model {
         this.name = name;
     }
 
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getLocation() {
@@ -135,4 +145,7 @@ public class model {
     public void setImage(byte[] image) {
         this.image = image;
     }
-}
+
+
+
+   }

@@ -105,5 +105,21 @@
     <string name="phone_number">Phone Number</string>
     <string name="generate_otp">Generate OTP</string>
     <string name="enter_otp">Enter OTP</string>
-    <string name="verify_sign_in">Verify and Sign In</string>
+    <string name="verify_sign_in">VerifState</string>
+    <string name="State">state</string>
+    <string name="City">City</string>
+    <string name="Country">Country</string>
+    <string name="sponsortext">Become A Sponsor
+We would like to invite you to become a part of this prestigious platform for the local talent to come under a grand limelight by being our generous Miss Indo Asia 2019 sponsor.</string>
+    <string name="title_activity_basic">basic</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_back" />
+    <string name="title_usb" />
+    <string name="title_logo">logo</string>
+    <string name="btnCapture">capture</string>
+    <string name="need_camera_permissions">This app needs the WRITE_EXTERNAL_STORAGE, RECORD_AUDIO
+        and CAMERA permissions to capture video from the camera.</string>
+
 </resources>

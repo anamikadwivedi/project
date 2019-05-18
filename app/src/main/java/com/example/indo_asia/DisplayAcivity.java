@@ -16,6 +16,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -34,7 +35,9 @@ import android.widget.ListView;
 import android.widget.ShareActionProvider;
 import android.widget.Toast;
 
+import com.example.indo_asia.extraActivity.My_Profile;
 import com.example.indo_asia.extraActivity.ShareActivity;
+import com.example.indo_asia.navigate.HomeActivity;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
@@ -54,37 +57,56 @@ public class DisplayAcivity extends AppCompatActivity {
     ArrayList<model> list;
     RecordListAdapter mAdapter = null;
     ImageView imageViewicon;
-    Button sharebuttn;
+    DatabaseHelper mdatabasehelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_acivity);
 
+        mdatabasehelper = new DatabaseHelper(this, "StarMake.sqlite", null, 1);
+
+
+
+
+
+        //Button b3 = (Button)findViewById(R.id.btnuser);
+        //b3.setOnClickListener(new View.OnClickListener() {
+        // @Override
+        //public void onClick(View v) {
+
+        //Intent intent = new Intent(DisplayAcivity.this,ShareActivity.class);
+        //startActivity(intent);
+
+              /*  Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                String shareBody = "Your body here";
+                String shareSub = "Your subject here";
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, shareSub);
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                startActivity(Intent.createChooser(sharingIntent, "Share using"));*/
+        // }
+        //  });
+
+
         mlistview = (ListView) findViewById(R.id.mlistview);
-        list = new ArrayList<>();
+        list = new ArrayList<model>();
         mAdapter = new RecordListAdapter(this, R.layout.row, list);
         mlistview.setAdapter(mAdapter);
-
-        sharebuttn = (Button)findViewById(R.id.btnshare);
-
-        sharebuttn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DisplayAcivity.this, ShareActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
         // get all data from sqlite
-        Cursor cursor = MainActivity.mdatabasehelper.getData("SELECT * FROM Star");
+        // get all data from sqlite
+
+        Cursor cursor =  mdatabasehelper.getData("SELECT * FROM SDB");
+
+
         list.clear();
         while (cursor.moveToNext()) {
             int id = cursor.getInt(0);
-            String name = cursor.getString(1);
-            String age = cursor.getString(2);
-            String phone = cursor.getString(3);
-            String email = cursor.getString(4);
+            String name = cursor.getString(0);
+            String email = cursor.getString(1);
+            String state = cursor.getString(2);
+            String country = cursor.getString(3);
+            String city = cursor.getString(4);
             String dob = cursor.getString(5);
             String location = cursor.getString(6);
             String height = cursor.getString(7);
@@ -95,8 +117,9 @@ public class DisplayAcivity extends AppCompatActivity {
 
             byte[] image = cursor.getBlob(12);
 
-            list.add(new model(id, name, age, phone, email, dob, location, height, Weight, bust, waist, hip, image));
+            list.add(new model(id, name, state, country, city, email, dob, location, height, Weight, bust, waist, hip, image));
         }
+
         mAdapter.notifyDataSetChanged();
 
         mlistview.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -114,7 +137,7 @@ public class DisplayAcivity extends AppCompatActivity {
                             // update
                             Cursor c = MainActivity.mdatabasehelper.getData("SELECT id FROM Star");
                             ArrayList<Integer> arrID = new ArrayList<Integer>();
-                            while (c.moveToNext()){
+                            while (c.moveToNext()) {
                                 arrID.add(c.getInt(0));
                             }
                             // show dialog update at here
@@ -124,7 +147,7 @@ public class DisplayAcivity extends AppCompatActivity {
                             // delete
                             Cursor c = MainActivity.mdatabasehelper.getData("SELECT id FROM Star");
                             ArrayList<Integer> arrID = new ArrayList<Integer>();
-                            while (c.moveToNext()){
+                            while (c.moveToNext()) {
                                 arrID.add(c.getInt(0));
                             }
                             showDialogDelete(arrID.get(position));
@@ -137,14 +160,15 @@ public class DisplayAcivity extends AppCompatActivity {
         });
     }
 
-   // ImageView imageViewicon;
-    private void showDialogUpdate(Activity activity, final int position){
+    // ImageView imageViewicon;
+    private void showDialogUpdate(Activity activity, final int position) {
 
         final Dialog dialog = new Dialog(activity);
         dialog.setContentView(R.layout.update_dialog);
         dialog.setTitle("Update");
 
         imageViewicon = dialog.findViewById(R.id.imageviewRecord);
+        // EditText id = dialog.findViewById(R.id.userid);
         final EditText editname = dialog.findViewById(R.id.editName);
         final EditText editage = dialog.findViewById(R.id.updateAge);
         final EditText editemail = dialog.findViewById(R.id.editEmailId);
@@ -198,10 +222,11 @@ public class DisplayAcivity extends AppCompatActivity {
                             MainActivity.imageViewToByte(imageViewicon),
                             position
                     );
-                   // dialog.show();
+                    // dialog.show();
                     Toast.makeText(getApplicationContext(), "Update Sucessfully", Toast.LENGTH_SHORT).show();
-                }
-                catch (Exception error) {
+                    Intent intent = new Intent(DisplayAcivity.this, My_Profile.class);
+                    startActivity(intent);
+                } catch (Exception error) {
                     Log.e("Update error", error.getMessage());
                 }
                 updateRecordList();
@@ -209,7 +234,8 @@ public class DisplayAcivity extends AppCompatActivity {
         });
     }
 
-    private void showDialogDelete(final int idFood){
+
+    private void showDialogDelete(final int idFood) {
         final AlertDialog.Builder dialogDelete = new AlertDialog.Builder(DisplayAcivity.this);
 
         dialogDelete.setTitle("Warning!!");
@@ -219,8 +245,11 @@ public class DisplayAcivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 try {
                     MainActivity.mdatabasehelper.deleteData(idFood);
-                    Toast.makeText(getApplicationContext(), "Delete successfully!!!",Toast.LENGTH_SHORT).show();
-                } catch (Exception e){
+                   // Toast.makeText(getApplicationContext(), "Delete successfully!!!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(DisplayAcivity.this, My_Profile.class);
+                    startActivity(intent);
+
+                } catch (Exception e) {
                     Log.e("error", e.getMessage());
                 }
                 updateRecordList();
@@ -241,10 +270,11 @@ public class DisplayAcivity extends AppCompatActivity {
         list.clear();
         while (cursor.moveToNext()) {
             int id = cursor.getInt(0);
-            String name = cursor.getString(1);
-            String age = cursor.getString(2);
-            String phone = cursor.getString(3);
-            String email = cursor.getString(4);
+            String name = cursor.getString(0);
+            String email = cursor.getString(1);
+            String state = cursor.getString(2);
+            String country = cursor.getString(3);
+            String city = cursor.getString(4);
             String dob = cursor.getString(5);
             String location = cursor.getString(6);
             String height = cursor.getString(7);
@@ -255,7 +285,8 @@ public class DisplayAcivity extends AppCompatActivity {
 
             byte[] image = cursor.getBlob(12);
 
-            list.add(new model(id, name, age, phone, email, dob, location, height, Weight, bust, waist, hip, image));
+            list.add(new model(id, name, state, country, city, email, dob, location, height, Weight, bust, waist, hip, image));
+
         }
         mAdapter.notifyDataSetChanged();
     }
@@ -263,36 +294,41 @@ public class DisplayAcivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
-        if(requestCode == 888){
-            if(grantResults.length >0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+        if (requestCode == 888) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Intent intent = new Intent(Intent.ACTION_PICK);
                 intent.setType("image/*");
                 startActivityForResult(intent, 888);
-            }
-            else {
+            } else {
                 Toast.makeText(getApplicationContext(), "You don't have permission to access file location!", Toast.LENGTH_SHORT).show();
             }
             return;
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        if(requestCode == 888 && resultCode == RESULT_OK && data != null){
+        if (requestCode == 888 && resultCode == RESULT_OK && data != null) {
             Uri uri = data.getData();
+
+
             try {
                 InputStream inputStream = getContentResolver().openInputStream(uri);
                 Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
                 imageViewicon.setImageBitmap(bitmap);
 
-            } catch (FileNotFoundException e) {
+            }
+
+             catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-        }
 
-        super.onActivityResult(requestCode, resultCode, data);
+
+            super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 }
 

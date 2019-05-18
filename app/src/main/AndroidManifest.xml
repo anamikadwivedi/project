@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.indo_asia">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,8 +19,24 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".FirabaseAuthentication.Main3Activity"></activity>
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".extraActivity.Video"></activity>
+        <activity android:name=".extraActivity.Videoplay" />
+        <activity android:name=".BOTTOMNAVATION.ActivityFour" />
+        <activity android:name=".BOTTOMNAVATION.ActivityThree" />
+        <activity android:name=".BOTTOMNAVATION.ActivityTwo" />
+        <activity android:name=".BOTTOMNAVATION.ActivityOne" />
+        <activity android:name=".NotificationsActivity" />
+        <activity android:name=".DashboardActivity" />
+        <activity
+            android:name=".basic"
+            android:label="@string/title_activity_basic"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".bottomnav.bottomnav" />
+        <activity android:name=".extraActivity.Sponsor" />
+        <activity android:name=".extraActivity.TermsAndCondition" />
+        <activity android:name=".FirabaseAuthentication.Main3Activity" />
         <activity android:name=".FirabaseAuthentication.Main2Activity" />
         <activity android:name=".extraActivity.ShareActivity" />
         <activity android:name=".FirabaseAuthentication.MessagingActivity" />

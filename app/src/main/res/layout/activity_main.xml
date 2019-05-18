@@ -18,8 +18,8 @@
 
         <ImageView
             android:id="@+id/imageViewv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="306dp"
+            android:layout_height="130dp"
             android:layout_gravity="center_horizontal"
             android:layout_margin="16dp"
             android:src="@drawable/icon" />
@@ -34,27 +34,6 @@
             android:gravity="center"
             android:hint="Enter Full Name"
             android:inputType="textCapWords"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:textColor="#666666"
-            android:textColorHint="#666666"
-            android:textSize="16sp" />
-
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1px"
-            android:background="@color/white_greyish" />
-
-        <EditText
-            android:id="@+id/ediAge"
-            android:layout_width="fill_parent"
-            android:layout_height="39dp"
-            android:layout_marginTop="5dp"
-            android:background="@android:color/transparent"
-            android:drawablePadding="8dp"
-            android:gravity="center"
-            android:hint="Enter Age"
-            android:inputType="textEmailAddress"
             android:padding="10dp"
             android:singleLine="true"
             android:textColor="#666666"
@@ -88,16 +67,18 @@
             android:layout_height="1px"
             android:background="@color/white_greyish" />
 
+
+
         <EditText
-            android:id="@+id/editmoileno"
+            android:id="@+id/editstate"
             android:layout_width="fill_parent"
-            android:layout_height="41dp"
+            android:layout_height="40dp"
             android:layout_marginTop="5dp"
             android:background="@android:color/transparent"
             android:drawablePadding="8dp"
             android:gravity="center"
-            android:hint="@string/mobileNumber"
-            android:inputType="phone"
+            android:hint="@string/State"
+            android:inputType="textCapWords"
             android:padding="10dp"
             android:singleLine="true"
             android:textColor="#666666"
@@ -109,21 +90,47 @@
             android:layout_height="1px"
             android:background="@color/white_greyish" />
 
+
+
         <EditText
-            android:id="@+id/editlocation"
+            android:id="@+id/editcountry"
             android:layout_width="fill_parent"
             android:layout_height="40dp"
             android:layout_marginTop="5dp"
             android:background="@android:color/transparent"
             android:drawablePadding="8dp"
             android:gravity="center"
-            android:hint="@string/location"
+            android:hint="@string/select_country"
             android:inputType="textCapWords"
             android:padding="10dp"
             android:singleLine="true"
             android:textColor="#666666"
             android:textColorHint="#666666"
             android:textSize="16sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="@color/white_greyish" />
+
+
+
+        <EditText
+            android:id="@+id/editCity"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/transparent"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:hint="@string/City"
+            android:inputType="textCapWords"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="#666666"
+            android:textColorHint="#666666"
+            android:textSize="16sp" />
+
 
         <View
             android:layout_width="fill_parent"
@@ -139,7 +146,7 @@
             android:drawablePadding="8dp"
             android:gravity="center"
             android:hint="Date Of Birth"
-            android:inputType="text"
+            android:inputType="number"
             android:padding="10dp"
             android:singleLine="true"
             android:textColor="#666666"
@@ -160,7 +167,7 @@
             android:drawablePadding="8dp"
             android:gravity="center"
             android:hint="Height In Feet"
-            android:inputType="textEmailAddress"
+            android:inputType="numberDecimal"
             android:padding="10dp"
             android:singleLine="true"
             android:textColor="#666666"
@@ -181,7 +188,7 @@
             android:drawablePadding="8dp"
             android:gravity="center"
             android:hint="weight In Kg"
-            android:inputType="textEmailAddress"
+            android:inputType="number"
             android:padding="10dp"
             android:singleLine="true"
             android:textColor="#666666"
@@ -202,7 +209,7 @@
             android:drawablePadding="8dp"
             android:gravity="center"
             android:hint="Bust In In"
-            android:inputType="textCapWords"
+            android:inputType="number"
             android:padding="10dp"
             android:singleLine="true"
             android:textColor="#666666"
@@ -223,7 +230,7 @@
             android:drawablePadding="8dp"
             android:gravity="center"
             android:hint="Waist In Inch"
-            android:inputType="textEmailAddress"
+            android:inputType="number"
             android:padding="10dp"
             android:singleLine="true"
             android:textColor="#666666"
@@ -244,15 +251,35 @@
             android:drawablePadding="8dp"
             android:gravity="center"
             android:hint="Hip In Inch"
-            android:inputType="textEmailAddress"
+            android:inputType="number"
             android:padding="10dp"
             android:singleLine="true"
             android:textColor="#666666"
             android:textColorHint="#666666"
             android:textSize="16sp" />
 
+
+
         <ImageView
             android:id="@+id/imageView"
+            android:layout_width="95dp"
+            android:layout_height="60dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/addphoto" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="95dp"
+            android:layout_height="60dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/addphoto" />
+
+        <ImageView
+            android:id="@+id/imageView3"
             android:layout_width="95dp"
             android:layout_height="60dp"
             android:layout_alignParentTop="true"
@@ -265,17 +292,12 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:background="@drawable/button_rounded_corners_gradient"
+            android:background="@drawable/rounded_corners"
             android:padding="3dp"
-            android:text="Next"
-            android:textColor="@color/background_color"
+            android:text="@string/SignUp"
+            android:textColor="@color/colorAccent"
             android:textSize="17sp"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btnList"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
     </LinearLayout>
-
     </ScrollView>

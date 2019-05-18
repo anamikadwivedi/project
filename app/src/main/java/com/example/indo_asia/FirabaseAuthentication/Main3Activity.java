@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.indo_asia.MainActivity;
 import com.example.indo_asia.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -70,7 +71,8 @@ public class Main3Activity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
 
-                            Intent intent = new Intent(Main3Activity.this, MessagingActivity.class);
+                            Toast.makeText(Main3Activity.this, "Authentication done..Please enter all detail", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(Main3Activity.this, MainActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
                             startActivity(intent);

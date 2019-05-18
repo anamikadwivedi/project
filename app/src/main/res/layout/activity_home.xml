@@ -9,15 +9,14 @@
 
     <include layout="@layout/toolbar" />
 
-
     <com.smarteist.autoimageslider.SliderLayout
 
         android:id="@+id/imageSlider"
         android:layout_width="match_parent"
-        android:layout_height="257dp"
+        android:layout_height="242dp"
         android:layout_below="@+id/toolbar"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="0dp" />
+        android:layout_marginTop="15dp" />
 
 
 
@@ -29,8 +28,8 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="23dp"
         android:background="@drawable/border"
-        android:text="ApplyNow"
-        android:textColor="#666"
+        android:text="@string/Home"
+        android:textColor="#fff"
         android:textSize="17dp"
         android:textStyle="bold"/>
 
@@ -43,7 +42,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/border"
         android:text="Apply"
-        android:textColor="#666"
+        android:textColor="#fff"
         android:textSize="17dp"
         android:textStyle="bold" />
 
@@ -56,7 +55,7 @@
         android:layout_marginTop="23dp"
         android:background="@drawable/border"
         android:text="@string/About_Us"
-        android:textColor="#666"
+        android:textColor="#fff"
         android:textSize="17dp"
         android:textStyle="bold" />
 
@@ -68,12 +67,8 @@
         android:layout_marginLeft="210dp"
         android:layout_marginTop="25dp"
         android:background="@drawable/border"
-        android:text="@string/Contestants"
-        android:textColor="#666"
+        android:text="@string/Contact_Us"
+        android:textColor="#fff"
         android:textSize="17dp"
         android:textStyle="bold" />
-
-
-
-
 </RelativeLayout>

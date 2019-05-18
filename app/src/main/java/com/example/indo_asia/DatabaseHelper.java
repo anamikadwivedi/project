@@ -1,16 +1,10 @@
 package com.example.indo_asia;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-
-import java.io.ByteArrayOutputStream;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -22,27 +16,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-
-
     public void queryData(String sql)
     {
         SQLiteDatabase database = getWritableDatabase();
         database.execSQL(sql);
     }
 
-    public  void insertData(String name, String age, String phone, String emailid, String location, String DOB, String Height,
+    public  void insertData(String name, String emailid, String state, String country, String city, String DOB, String Height,
                            String weight, String Bust, String waist, String Hip,  byte[] image)
     {
         SQLiteDatabase database = getWritableDatabase();
-        String sql =  "INSERT INTO Star VALUES(NULL, ?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql =  "INSERT INTO SDB VALUES(NULL, ?,?,?,?,?,?,?,?,?,?,?,?)";
         SQLiteStatement statement = database.compileStatement(sql);
         statement.clearBindings();
 
         statement.bindString(1 , name);
-        statement.bindString(2 , age);
-        statement.bindString(3 , phone);
-        statement.bindString(4,emailid);
-        statement.bindString(5,location);
+        statement.bindString(2,emailid);
+        statement.bindString(3,state);
+        statement.bindString(4,country);
+        statement.bindString(5,city);
         statement.bindString(6 , DOB);
         statement.bindString(7 , Height);
         statement.bindString(8 , weight);
@@ -57,25 +49,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public void updateData (String name, String age, String phone, String emailid, String location, String DOB,
-                           String Height, String weight, String Bust, String waist, String Hip, byte[] image, int id)
+    public void updateData (String name, String emailid, String state, String country, String city, String DOB, String Height,
+                            String weight, String Bust, String waist, String Hip,  byte[] image, int id)
     {
         SQLiteDatabase database = getWritableDatabase();
-        String sql = "UPDATE Star SET name=?, age=?, phone=?, emailid=?, location = ?, DOB = ?, Height = ?, weight = ?, Bust = ?, waist = ?, Hip = ?, image=? where id=?";
+        String sql = "UPDATE SDB SET name=?, emailid=?, state=?, country=?, city=?, DOB = ?, Height = ?, weight = ?, Bust = ?, waist = ?, Hip = ?, image=? where id=?";
         SQLiteStatement statement = database.compileStatement(sql);
 
         statement.bindDouble(0,(double)id);
         statement.bindString(1 , name);
-        statement.bindString(2 , age);
-        statement.bindString(3 , phone);
-        statement.bindString(4,emailid);
-        statement.bindString(5,location);
+        statement.bindString(2,emailid);
+        statement.bindString(3,state);
+        statement.bindString(4,country);
+        statement.bindString(5,city);
         statement.bindString(6 , DOB);
         statement.bindString(7 , Height);
         statement.bindString(8 , weight);
         statement.bindString(9,Bust);
         statement.bindString(10,waist);
         statement.bindString(11,Hip);
+
         statement.bindBlob(12, image);
 
         statement.executeInsert();
@@ -87,7 +80,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void deleteData (int id)
     {
         SQLiteDatabase database = getWritableDatabase();
-        String sql = "DELETE FROM Star WHERE id=?";
+        String sql = "DELETE FROM SDB WHERE id=?";
 
         SQLiteStatement statement = database.compileStatement(sql);
         statement.clearBindings();
@@ -98,9 +91,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public Cursor getData (String sql)
+    public Cursor getData(String sql)
     {
+        String countQuery = "SELECT  * FROM SDB";
         SQLiteDatabase database = getReadableDatabase();
+        Cursor cursor = database.rawQuery(countQuery, null);
+        cursor.close();
+
+        // return count
+
         return database.rawQuery(sql,null);
     }
 
