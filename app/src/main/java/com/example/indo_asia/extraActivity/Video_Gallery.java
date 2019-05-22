@@ -6,6 +6,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 
 import android.Manifest;
 import android.app.Activity;
@@ -19,6 +20,7 @@ import android.media.CamcorderProfile;
 import android.media.MediaRecorder;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -29,6 +31,7 @@ import android.view.TextureView;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -43,7 +46,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-public class Video_Gallery extends Activity implements SurfaceHolder.Callback/*implements View.OnClickListener, SurfaceHolder.Callback */{
+public class Video_Gallery extends Activity /*implements SurfaceHolder.Callback*//*implements View.OnClickListener, SurfaceHolder.Callback */{
 
     public static final String LOGTAG = "VIDEOCAPTURE";
 
@@ -61,6 +64,13 @@ public class Video_Gallery extends Activity implements SurfaceHolder.Callback/*i
     SurfaceHolder surfaceHolder;
     boolean recording;
 
+    final static int REQUEST_VIDEO_CAPTURED = 1;
+    Uri uriVideo = null;
+    VideoView videoviewPlay;
+
+    public final int REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS = 1;
+
+//requests for runtime time permissions
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -231,7 +241,7 @@ public class Video_Gallery extends Activity implements SurfaceHolder.Callback/*i
     }
 }*/
 
-        recording = false;
+      /*  recording = false;
 
         mediaRecorder = new MediaRecorder();
         initMediaRecorder();
@@ -272,19 +282,19 @@ public class Video_Gallery extends Activity implements SurfaceHolder.Callback/*i
     @Override
     public void surfaceCreated(SurfaceHolder arg0) {
         // TODO Auto-generated method stub
-        prepareMediaRecorder();
+        //prepareMediaRecorder();
     }
     @Override
     public void surfaceDestroyed(SurfaceHolder arg0) {
         // TODO Auto-generated method stub
 
-    }
+    }*/
 
-    private void initMediaRecorder(){
-        mediaRecorder.setAudioSource(MediaRecorder.AudioSource.DEFAULT);
-        mediaRecorder.setVideoSource(MediaRecorder.VideoSource.DEFAULT);
+   /* private void initMediaRecorder(){
+      //  mediaRecorder.setAudioSource(MediaRecorder.AudioSource.DEFAULT);
+      //  mediaRecorder.setVideoSource(MediaRecorder.VideoSource.DEFAULT);
         CamcorderProfile camcorderProfile_HQ = CamcorderProfile.get(CamcorderProfile.QUALITY_HIGH);
-        mediaRecorder.setProfile(camcorderProfile_HQ);
+        //mediaRecorder.setProfile(camcorderProfile_HQ);
         mediaRecorder.setOutputFile("/sdcard/myvideo.mp4");
         mediaRecorder.setMaxDuration(60000); // Set max duration 60 sec.
         mediaRecorder.setMaxFileSize(5000000); // Set max file size 5M
@@ -300,6 +310,107 @@ public class Video_Gallery extends Activity implements SurfaceHolder.Callback/*i
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
+        }*/
+
+
+
+        Button buttonRecording = (Button)findViewById(R.id.recording);
+        Button buttonPlayback = (Button)findViewById(R.id.playback);
+        videoviewPlay = (VideoView)findViewById(R.id.videoview);
+
+        buttonRecording.setOnClickListener(new Button.OnClickListener(){
+
+            @Override
+            public void onClick(View arg0) {
+                // TODO Auto-generated method stub
+                Intent intent = new Intent(android.provider.MediaStore.ACTION_VIDEO_CAPTURE);
+                startActivityForResult(intent, REQUEST_VIDEO_CAPTURED);
+            }});
+
+        buttonPlayback.setOnClickListener(new Button.OnClickListener(){
+
+            @Override
+            public void onClick(View arg0) {
+                // TODO Auto-generated method stub
+                if(uriVideo == null){
+                    Toast.makeText(Video_Gallery.this,
+                            "No Video",
+                            Toast.LENGTH_LONG)
+                            .show();
+                }else{
+                    Toast.makeText(Video_Gallery.this,
+                            "Playback: " + uriVideo.getPath(),
+                            Toast.LENGTH_LONG)
+                            .show();
+                    videoviewPlay.setVideoURI(uriVideo);
+                    videoviewPlay.start();
+                }
+            }});
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+// TODO Auto-generated method stub
+        if(resultCode == RESULT_OK){
+            if(requestCode == REQUEST_VIDEO_CAPTURED){
+                uriVideo = data.getData();
+                Toast.makeText(Video_Gallery.this,
+                        uriVideo.getPath(),
+                        Toast.LENGTH_LONG)
+                        .show();
+            }
+        }else if(resultCode == RESULT_CANCELED){
+            uriVideo = null;
+            Toast.makeText(Video_Gallery.this,
+                    "Cancelled!",
+                    Toast.LENGTH_LONG)
+                    .show();
         }
     }
-}
+
+    }
+        // file:///storage/emulated/0/Movies/camera/Video_20161221_140831.mp4
+       /* LOGTAG = mediaRecorder.getOutputMediaFileUri();
+        Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+        intent.putExtra(MediaStore.EXTRA_SCREEN_ORIENTATION, ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        // Ensure that there's a camera activity to handle the intent
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            //
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                MimeTypeMap mime = MimeTypeMap.getSingleton();
+                String type = mime.getMimeTypeFromExtension("mp4");
+                intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                // content://com.jay.android.video.gallery.gallery.provider/external_storage_root/Movies/camera/Video_20161221_140831.mp4
+                Uri contentUri = FileProvider.getUriForFile(this, this.getPackageName() + ".provider", new File(videoviewPlay.getPath()));
+                //intent.setDataAndType(contentUri, type);
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, contentUri);
+            } else {
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, videoviewPlay);
+            }
+            startActivityForResult(intent, REQUEST_VIDEO_CAPTURED);
+        }
+    }
+//    private void dispatchTakeVideoIntent() {
+//        videoStoragePathUri = MediaUtils.getOutputMediaFileUri();
+//
+//        Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+//        if (takeVideoIntent.resolveActivity(getPackageManager()) != null) {
+//            startActivityForResult(takeVideoIntent, REQUEST_VIDEO_CAPTURE);
+//        }
+//    }
+//    private void recordVideo() {
+//        Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+//
+//        fileUri = getOutputMediaFileUri(MEDIA_TYPE_VIDEO);
+//
+//        // set video quality
+//        intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 1);
+//
+//        intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri); // set the image file
+//        // name
+//
+//        // start the video capture Intent
+//        startActivityForResult(intent, REQUEST_VIDEO_CAPTURE);
+//    }
+   }*/
+

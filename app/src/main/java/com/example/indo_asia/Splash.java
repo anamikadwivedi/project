@@ -5,16 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.indo_asia.FirabaseAuthentication.FAuth;
-import com.example.indo_asia.bottomnav.bnavActivity;
-import com.example.indo_asia.bottomnav.bottomnav;
-import com.example.indo_asia.extraActivity.TermsAndCondition;
-import com.example.indo_asia.extraActivity.Video;
-import com.example.indo_asia.extraActivity.Video_Gallery;
-import com.example.indo_asia.fragment.Home;
-import com.example.indo_asia.navigate.HomeActivity;
-import com.example.indo_asia.payment.payment_Activity;
-import com.paypal.android.sdk.payments.PaymentActivity;
+import com.example.indo_asia.payment.CardActivity;
+import com.example.indo_asia.payment.MakePayment;
+import com.example.indo_asia.payment.PayPalActivity;
 //import com.example.indo_asia.navigtation.navActivity;
 
 
@@ -37,7 +30,7 @@ public class Splash extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
-                    Intent intent = new Intent(Splash.this, basic.class);
+                    Intent intent = new Intent(Splash.this, MakePayment.class);
                     startActivity(intent);
                 }
             }

@@ -1,9 +1,6 @@
 package com.example.indo_asia;
 
 import android.Manifest;
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -12,21 +9,16 @@ import android.net.Uri;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
 import androidx.core.app.ActivityCompat;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.indo_asia.extraActivity.TermsAndCondition;
-import com.example.indo_asia.navigate.HomeActivity;
-import com.example.indo_asia.payment.payment_Activity;
-import com.paypal.android.sdk.payments.PaymentActivity;
+import com.example.indo_asia.payment.MakePayment;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
@@ -107,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                             imageViewToByte(mimageView)
                     );
                     Toast.makeText(MainActivity.this, "Added Successfully", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MainActivity.this, PaymentActivity.class);
+                    Intent intent = new Intent(MainActivity.this, MakePayment.class);
                     startActivity(intent);
                     mEditName.setText("");
                     edemail.setText("");
