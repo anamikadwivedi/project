@@ -13,62 +13,128 @@
 
         android:id="@+id/imageSlider"
         android:layout_width="match_parent"
-        android:layout_height="242dp"
+        android:layout_height="657dp"
         android:layout_below="@+id/toolbar"
         android:layout_alignParentTop="true"
         android:layout_marginTop="15dp" />
 
 
-
-    <Button
+    <!--Button
         android:id="@+id/btnhome"
-        android:layout_width="160dp"
-        android:layout_height="122dp"
+        android:layout_width="102dp"
+        android:layout_height="93dp"
         android:layout_below="@+id/imageSlider"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="23dp"
-        android:background="@drawable/border"
-        android:text="@string/Home"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="43dp"
+        android:background="@drawable/about"
         android:textColor="#fff"
         android:textSize="17dp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/buttonApply"
-        android:layout_width="160dp"
-        android:layout_height="125dp"
+        android:layout_width="103dp"
+        android:layout_height="89dp"
         android:layout_below="@+id/btnhome"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/border"
-        android:text="Apply"
+        android:background="@drawable/apply"
         android:textColor="#fff"
         android:textSize="17dp"
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnAbout"
-        android:layout_width="170dp"
-        android:layout_height="117dp"
+        android:layout_width="wrap_content"
+        android:layout_height="96dp"
         android:layout_below="@+id/imageSlider"
         android:layout_marginLeft="210dp"
-        android:layout_marginTop="23dp"
-        android:background="@drawable/border"
-        android:text="@string/About_Us"
+        android:layout_marginTop="43dp"
+        android:background="@drawable/icoabut"
         android:textColor="#fff"
         android:textSize="17dp"
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnContact"
-        android:layout_width="170dp"
-        android:layout_height="121dp"
+        android:layout_width="87dp"
+        android:layout_height="78dp"
         android:layout_below="@+id/btnAbout"
         android:layout_marginLeft="210dp"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/border"
-        android:text="@string/Contact_Us"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/pone"
         android:textColor="#fff"
         android:textSize="17dp"
-        android:textStyle="bold" />
+        android:textStyle="bold" /-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/topBar">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="3dp">
+
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#666">
+
+
+                </com.google.android.material.tabs.TabLayout>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="395dp"
+            android:layout_height="403dp"
+            android:layout_above="@+id/bottomBar"
+            android:layout_below="@+id/topBar"
+            android:layout_marginTop="229dp">
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="622dp"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            </androidx.viewpager.widget.ViewPager>
+
+        </RelativeLayout>
+
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/bottomBar"
+            android:layout_alignParentBottom="true">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/bottomNavView_Bar"
+                android:background="@color/colorAccent"
+                app:menu="@menu/bottom_navigation_menu">
+
+
+            </com.google.android.material.bottomnavigation.BottomNavigationView>
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
 </RelativeLayout>

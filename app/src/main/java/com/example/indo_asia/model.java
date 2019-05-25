@@ -16,8 +16,10 @@ public class model {
     private String Waist;
     private String Hip;
     private byte[] image;
+    private byte[] image1;
+    private byte[] image2;
 
-    public model(int id, String name, String email, String state, String country, String city, String DOB, String location, String height, String weight, String bust, String waist, String hip, byte[] image) {
+    public model(int id, String name, String email, String state, String country, String city, String DOB, String location, String height, String weight, String bust, String waist, String hip, byte[] image, byte[] image1, byte[] image2) {
         this.id = id;
         this.name = name;
         this.state = state;
@@ -32,6 +34,8 @@ public class model {
         Waist = waist;
         Hip = hip;
         this.image = image;
+        this.image1 = image1;
+        this.image2 = image2;
     }
 
     public int getId() {
@@ -146,6 +150,19 @@ public class model {
         this.image = image;
     }
 
+    public byte[] getImage1() {
+        return image1;
+    }
 
+    public void setImage1(byte[] image1) {
+        this.image1 = image1;
+    }
 
-   }
+    public byte[] getImage2() {
+        return image2;
+    }
+
+    public void setImage2(byte[] image2) {
+        this.image2 = image2;
+    }
+}

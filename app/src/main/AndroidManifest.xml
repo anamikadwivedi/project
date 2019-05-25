@@ -10,9 +10,7 @@
     <uses-feature
         android:name="android.hardware.camera.any"
         android:required="true" />
-    <uses-feature
-        android:name="android.hardware.camera.autofocus"
-        android:required="false" />
+
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -26,15 +24,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".payment.LocalPaymentsActivity"></activity>
-        <activity android:name=".payment.VisaCheckoutActivity" />
-        <activity android:name=".navigate.VenmoActivity" />
-        <activity android:name=".payment.GooglePaymentActivity" />
-        <activity android:name=".payment.SettingsActivity" />
-        <activity android:name=".payment.CardActivity" />
-        <activity android:name=".payment.CreateTransactionActivity" />
-        <activity android:name=".payment.PayPalActivity" />
-        <activity android:name=".payment.MakePayment" />
+
         <activity android:name=".extraActivity.MakeVideo" />
         <activity android:name=".extraActivity.Video" />
         <activity android:name=".extraActivity.Videoplay" />

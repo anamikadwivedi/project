@@ -5,9 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.indo_asia.payment.CardActivity;
-import com.example.indo_asia.payment.MakePayment;
-import com.example.indo_asia.payment.PayPalActivity;
+import com.example.indo_asia.navigate.HomeActivity;
 //import com.example.indo_asia.navigtation.navActivity;
 
 
@@ -30,7 +28,7 @@ public class Splash extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
-                    Intent intent = new Intent(Splash.this, MakePayment.class);
+                    Intent intent = new Intent(Splash.this, HomeActivity.class);
                     startActivity(intent);
                 }
             }

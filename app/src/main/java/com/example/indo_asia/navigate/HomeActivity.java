@@ -16,11 +16,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.hardware.Camera;
+import android.media.CamcorderProfile;
+import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SurfaceHolder;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -31,16 +35,21 @@ import android.widget.ImageView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
+import com.example.indo_asia.BOTTOMNAVATION.BottomNavigationViewHelper;
+import com.example.indo_asia.BOTTOMNAVATION.SectionsPageAdapter;
 import com.example.indo_asia.DatabaseHelper;
 import com.example.indo_asia.DisplayAcivity;
 import com.example.indo_asia.FirabaseAuthentication.Main2Activity;
 import com.example.indo_asia.MainActivity;
 import com.example.indo_asia.R;
+import com.example.indo_asia.basic;
 import com.example.indo_asia.extraActivity.AboutUs;
 import com.example.indo_asia.extraActivity.ContactUs;
+import com.example.indo_asia.extraActivity.MakeVideo;
 import com.example.indo_asia.extraActivity.My_Profile;
 import com.example.indo_asia.extraActivity.Photo_Gallery;
 import com.example.indo_asia.extraActivity.Sponsor;
+import com.example.indo_asia.extraActivity.TermsAndCondition;
 import com.example.indo_asia.fragment.ApplyNow;
 import com.example.indo_asia.fragment.Contestants;
 import com.example.indo_asia.fragment.Home;
@@ -70,6 +79,21 @@ public class HomeActivity extends AppCompatActivity  {
 
 
     ImageView imageView;
+
+    private SectionsPageAdapter mSectionsPageAdapter;
+
+    private ViewPager mViewPager;
+
+    public static final String LOGTAG = "VIDEOCAPTURE";
+
+    private MediaRecorder recorder;
+    private SurfaceHolder holder;
+    private CamcorderProfile camcorderProfile;
+    private Camera camera;
+
+    boolean recording = false;
+    boolean usecamera = true;
+    boolean previewRunning = false;
 
 
     @Override
@@ -118,7 +142,7 @@ public class HomeActivity extends AppCompatActivity  {
         sliderLayout.setScrollTimeInSec(1); //set scroll delay in seconds :
         setSliderViews();
 
-        b1 = findViewById(R.id.btnhome);
+       /* b1 = findViewById(R.id.btnhome);
         b2 = findViewById(R.id.btnAbout);
         b3 = findViewById(R.id.buttonApply);
         b4 = findViewById(R.id.btnContact);
@@ -163,7 +187,7 @@ public class HomeActivity extends AppCompatActivity  {
 
             }
 
-        });
+        });*/
     }
 
     //MENU OPTION
@@ -219,7 +243,7 @@ public class HomeActivity extends AppCompatActivity  {
 
     private void setSliderViews() {
 
-        for (int i = 0; i <= 4; i++) {
+        for (int i = 0; i <= 5; i++) {
 
             DefaultSliderView sliderView = new DefaultSliderView(this);
 
@@ -228,16 +252,19 @@ public class HomeActivity extends AppCompatActivity  {
                     sliderView.setImageDrawable(R.drawable.sheeny);
                     break;
                 case 1:
-                    sliderView.setImageDrawable(R.drawable.pict);
+                    sliderView.setImageDrawable(R.drawable.indo);
                     break;
                 case 2:
-                    sliderView.setImageDrawable(R.drawable.im);
+                    sliderView.setImageDrawable(R.drawable.mam);
                     break;
                 case 3:
                     sliderView.setImageDrawable(R.drawable.imagethree);
                     break;
                 case 4:
-                    sliderView.setImageDrawable(R.drawable.sheeny);
+                    sliderView.setImageDrawable(R.drawable.pic);
+                    break;
+                case 5:
+                    sliderView.setImageDrawable(R.drawable.pict);
                     break;
             }
 
@@ -258,6 +285,49 @@ public class HomeActivity extends AppCompatActivity  {
         }
 
 
+        //BOTTOM NAVIGATATION
 
-    }
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
+        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(0);
+        menuItem.setChecked(true);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+
+                    case R.id.ic_android:
+                        Intent intent1 = new Intent(HomeActivity.this, Main2Activity.class);
+                        startActivity(intent1);
+                        break;
+
+                    case R.id.ic_books:
+                        Intent intent2 = new Intent(HomeActivity.this, DisplayAcivity.class);
+                        startActivity(intent2);
+                        break;
+
+                    case R.id.ic_center_focus:
+                        Intent intent3 = new Intent(HomeActivity.this, MakeVideo.class);
+                        startActivity(intent3);
+                        break;
+
+                    case R.id.ic_backup:
+                        Intent intent4 = new Intent(HomeActivity.this, Photo_Gallery.class);
+                        startActivity(intent4);
+                        break;
+                }
+
+
+                return false;
+            }
+        });
+
+
+
+
+
+
+}
 }

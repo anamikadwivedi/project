@@ -25,7 +25,7 @@ public class TermsAndCondition extends AppCompatActivity {
         setContentView(R.layout.activity_terms_and_condition);
 
         mBox = (CheckBox) findViewById(R.id.checkBox1);
-        String checkBoxText = "I agree to all the <a href='http://www.redbus.in/mob/mTerms.aspx' > Terms and Conditions</a>";
+        String checkBoxText = "I agree to all the <a href='http://missindoasia.com.rules-and-regulation/.aspx' > Terms and Conditions</a>";
 
         mBox.setText(Html.fromHtml(checkBoxText));
         mBox.setMovementMethod(LinkMovementMethod.getInstance());
@@ -41,6 +41,5 @@ public class TermsAndCondition extends AppCompatActivity {
                 }
             }
         });
-
     }
 }

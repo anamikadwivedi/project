@@ -56,7 +56,7 @@ public class DisplayAcivity extends AppCompatActivity {
     ListView mlistview;
     ArrayList<model> list;
     RecordListAdapter mAdapter = null;
-    ImageView imageViewicon;
+    ImageView imageViewicon,imageviewicon1,Imageviewicon2;
     DatabaseHelper mdatabasehelper;
 
     @Override
@@ -64,29 +64,7 @@ public class DisplayAcivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_acivity);
 
-        mdatabasehelper = new DatabaseHelper(this, "StarMake.sqlite", null, 1);
-
-
-
-
-
-        //Button b3 = (Button)findViewById(R.id.btnuser);
-        //b3.setOnClickListener(new View.OnClickListener() {
-        // @Override
-        //public void onClick(View v) {
-
-        //Intent intent = new Intent(DisplayAcivity.this,ShareActivity.class);
-        //startActivity(intent);
-
-              /*  Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-                sharingIntent.setType("text/plain");
-                String shareBody = "Your body here";
-                String shareSub = "Your subject here";
-                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, shareSub);
-                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-                startActivity(Intent.createChooser(sharingIntent, "Share using"));*/
-        // }
-        //  });
+        mdatabasehelper = new DatabaseHelper(this, "STARMAKER.sqlite", null, 1);
 
 
         mlistview = (ListView) findViewById(R.id.mlistview);
@@ -96,7 +74,7 @@ public class DisplayAcivity extends AppCompatActivity {
         // get all data from sqlite
         // get all data from sqlite
 
-        Cursor cursor =  mdatabasehelper.getData("SELECT * FROM SDB");
+        Cursor cursor =  mdatabasehelper.getData("SELECT * FROM STM");
 
 
         list.clear();
@@ -116,8 +94,10 @@ public class DisplayAcivity extends AppCompatActivity {
             String hip = cursor.getString(11);
 
             byte[] image = cursor.getBlob(12);
+            byte[] image1 = cursor.getBlob(13);
+            byte[] image2 = cursor.getBlob(14);
 
-            list.add(new model(id, name, state, country, city, email, dob, location, height, Weight, bust, waist, hip, image));
+            list.add(new model(id, name, state, country, city, email, dob, location, height, Weight, bust, waist, hip, image, image1, image2));
         }
 
         mAdapter.notifyDataSetChanged();
@@ -168,6 +148,9 @@ public class DisplayAcivity extends AppCompatActivity {
         dialog.setTitle("Update");
 
         imageViewicon = dialog.findViewById(R.id.imageviewRecord);
+        imageviewicon1 = dialog.findViewById(R.id.imageviewRecord);
+        Imageviewicon2 = dialog.findViewById(R.id.imageviewRecord);
+
         // EditText id = dialog.findViewById(R.id.userid);
         final EditText editname = dialog.findViewById(R.id.editName);
         final EditText editage = dialog.findViewById(R.id.updateAge);
@@ -202,6 +185,30 @@ public class DisplayAcivity extends AppCompatActivity {
             }
         });
 
+        imageviewicon1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // request photo library
+                ActivityCompat.requestPermissions(
+                        DisplayAcivity.this,
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        888
+                );
+            }
+        });
+
+        Imageviewicon2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // request photo library
+                ActivityCompat.requestPermissions(
+                        DisplayAcivity.this,
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        888
+                );
+            }
+        });
+
         btnupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -220,6 +227,9 @@ public class DisplayAcivity extends AppCompatActivity {
                             edithip.getText().toString().trim(),
 
                             MainActivity.imageViewToByte(imageViewicon),
+                            MainActivity.imageViewToByte(imageviewicon1),
+                            MainActivity.imageViewToByte(Imageviewicon2),
+
                             position
                     );
                     // dialog.show();
@@ -266,7 +276,7 @@ public class DisplayAcivity extends AppCompatActivity {
     }
 
     private void updateRecordList() {
-        Cursor cursor = MainActivity.mdatabasehelper.getData("SELECT * FROM Star");
+        Cursor cursor = MainActivity.mdatabasehelper.getData("SELECT * FROM STM");
         list.clear();
         while (cursor.moveToNext()) {
             int id = cursor.getInt(0);
@@ -284,8 +294,11 @@ public class DisplayAcivity extends AppCompatActivity {
             String hip = cursor.getString(11);
 
             byte[] image = cursor.getBlob(12);
+            byte[] image1 = cursor.getBlob(13);
+            byte[] image2 = cursor.getBlob(14);
 
-            list.add(new model(id, name, state, country, city, email, dob, location, height, Weight, bust, waist, hip, image));
+
+            list.add(new model(id, name, state, country, city, email, dob, location, height, Weight, bust, waist, hip, image,image1,image2));
 
         }
         mAdapter.notifyDataSetChanged();

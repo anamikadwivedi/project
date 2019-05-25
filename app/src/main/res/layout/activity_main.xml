@@ -5,6 +5,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/newbk"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -67,8 +69,6 @@
             android:layout_height="1px"
             android:background="@color/white_greyish" />
 
-
-
         <EditText
             android:id="@+id/editstate"
             android:layout_width="fill_parent"
@@ -84,6 +84,26 @@
             android:textColor="#666666"
             android:textColorHint="#666666"
             android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/State"
+            android:textStyle="bold"/>
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_below="@+id/tv"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true" />
+
+
+
+
 
         <View
             android:layout_width="fill_parent"
@@ -258,16 +278,46 @@
             android:textColorHint="#666666"
             android:textSize="16sp" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="217dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="200dp"
+                android:text="  Please select picture"
+                android:textAlignment="gravity"
+                android:textColor="#000"
+                />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="80dp"
+                android:layout_height="46dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/addphoto"
+                />
+        </LinearLayout>
 
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="95dp"
-            android:layout_height="60dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/addphoto" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="200dp"
+            android:text="Please select Half Picture"
+            android:textColor="#000"
+            android:layout_gravity="right"/>
 
         <ImageView
             android:id="@+id/imageView1"
@@ -277,6 +327,21 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:src="@drawable/addphoto" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="200dp"
+            android:text="Please select picture"
+            android:textColor="#000"/>
 
         <ImageView
             android:id="@+id/imageView3"
@@ -286,6 +351,31 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:src="@drawable/addphoto" />
+    </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/checkBox1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="35dp"
+            android:text="By clicking SignUp you agree all the Terms and Conditions."
+
+            />
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="147dp"
+            android:layout_height="252dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="479dp"
+            android:background="@drawable/rounded_corners"
+            android:minWidth="132dp"
+            android:minHeight="56dp"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/btnAdd"

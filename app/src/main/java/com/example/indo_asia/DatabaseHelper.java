@@ -6,6 +6,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     public DatabaseHelper(Context context,
@@ -23,10 +26,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public  void insertData(String name, String emailid, String state, String country, String city, String DOB, String Height,
-                           String weight, String Bust, String waist, String Hip,  byte[] image)
+                            String weight, String Bust, String waist, String Hip, byte[] image, byte[] image1, byte[] image2)
     {
         SQLiteDatabase database = getWritableDatabase();
-        String sql =  "INSERT INTO SDB VALUES(NULL, ?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql =  "INSERT INTO STM VALUES(NULL, ?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         SQLiteStatement statement = database.compileStatement(sql);
         statement.clearBindings();
 
@@ -43,6 +46,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         statement.bindString(11,Hip);
 
         statement.bindBlob(12 , image);
+        statement.bindBlob(13,image1);
+        statement.bindBlob(14,image2);
+
 
         statement.executeInsert();
 
@@ -50,10 +56,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public void updateData (String name, String emailid, String state, String country, String city, String DOB, String Height,
-                            String weight, String Bust, String waist, String Hip,  byte[] image, int id)
+                            String weight, String Bust, String waist, String Hip,  byte[] image, byte[] image1, byte[] image2, int id)
     {
         SQLiteDatabase database = getWritableDatabase();
-        String sql = "UPDATE SDB SET name=?, emailid=?, state=?, country=?, city=?, DOB = ?, Height = ?, weight = ?, Bust = ?, waist = ?, Hip = ?, image=? where id=?";
+        String sql = "UPDATE STM SET name=?, emailid=?, state=?, country=?, city=?, DOB = ?, Height = ?, weight = ?, Bust = ?, waist = ?, Hip = ?, image=?, image1=?, image2=? where id=?";
         SQLiteStatement statement = database.compileStatement(sql);
 
         statement.bindDouble(0,(double)id);
@@ -70,6 +76,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         statement.bindString(11,Hip);
 
         statement.bindBlob(12, image);
+        statement.bindBlob(13,image1);
+        statement.bindBlob(14,image2);
 
         statement.executeInsert();
         database.close();
@@ -80,7 +88,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void deleteData (int id)
     {
         SQLiteDatabase database = getWritableDatabase();
-        String sql = "DELETE FROM SDB WHERE id=?";
+        String sql = "DELETE FROM STM WHERE id=?";
 
         SQLiteStatement statement = database.compileStatement(sql);
         statement.clearBindings();
@@ -93,7 +101,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor getData(String sql)
     {
-        String countQuery = "SELECT  * FROM SDB";
+        String countQuery = "SELECT  * FROM STM";
         SQLiteDatabase database = getReadableDatabase();
         Cursor cursor = database.rawQuery(countQuery, null);
         cursor.close();
@@ -113,4 +121,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    public void saveName(String label) {
+
+    }
+
+
+    public List<String> getAllNames() {
+        List<String> names = new ArrayList<String>();
+
+        // Select All Query
+        String selectQuery = "SELECT  * FROM STM";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                names.add(cursor.getString(1));
+            } while (cursor.moveToNext());
+        }
+
+        // closing connection
+        cursor.close();
+        db.close();
+
+        // returning names
+        return names;
+    }
 }

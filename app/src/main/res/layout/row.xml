@@ -60,6 +60,7 @@
                         android:text="State: "
                         android:textColor="#fff"
                         android:textSize="15dp"
+                        android:visibility="invisible"
                         android:textStyle="bold" />
 
                     <TextView
@@ -67,6 +68,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="state Here"
+                        android:visibility="invisible"
                         android:textColor="#fff"
                         android:textSize="15dp"
                         android:textStyle="bold" />
@@ -100,6 +102,7 @@
                         android:text="City: "
                         android:textColor="#fff"
                         android:textSize="15dp"
+                        android:visibility="invisible"
                         android:textStyle="bold" />
 
                     <TextView
@@ -108,6 +111,7 @@
                         android:layout_height="wrap_content"
                         android:text="City"
                         android:textColor="#fff"
+                        android:visibility="invisible"
                         android:textSize="15dp"
                         android:textStyle="bold" />
                 </TableRow>
@@ -120,8 +124,8 @@
                         android:text="email: "
                         android:textColor="#fff"
                         android:textSize="15dp"
+                        android:visibility="invisible"
                         android:textStyle="bold" />
-
                     <TextView
                         android:id="@+id/txtemail"
                         android:layout_width="match_parent"
@@ -141,6 +145,7 @@
                         android:text="DOB: "
                         android:textColor="#fff"
                         android:textSize="15dp"
+                        android:visibility="invisible"
                         android:textStyle="bold" />
 
                     <TextView
@@ -150,6 +155,7 @@
                         android:text="DOB Here"
                         android:textColor="#fff"
                         android:textSize="15dp"
+                        android:visibility="invisible"
                         android:textStyle="bold" />
                 </TableRow>
 
@@ -161,6 +167,7 @@
                         android:text="location: "
                         android:textColor="#fff"
                         android:textSize="20dp"
+                        android:visibility="invisible"
                         android:textStyle="bold" />
 
                     <TextView
@@ -170,6 +177,7 @@
                         android:text="Location Here"
                         android:textColor="#fff"
                         android:textSize="20dp"
+                        android:visibility="invisible"
                         android:textStyle="bold" />
                 </TableRow>
 
@@ -181,6 +189,7 @@
                         android:text="Height: "
                         android:textColor="#666"
                         android:textSize="20dp"
+                        android:visibility="invisible"
                         android:textStyle="bold" />
 
                     <TextView
@@ -190,6 +199,7 @@
                         android:text="Height Here"
                         android:textColor="#666"
                         android:textSize="20dp"
+                        android:visibility="invisible"
                         android:textStyle="bold" />
                 </TableRow>
 
